@@ -1,10 +1,11 @@
 'use strict';
 
-const noble = require('noble');
+const noble = require('@abandonware/noble');
+
 const OmronEnv = require('./omron-env-sensor');
 
 const NAME = 'EP';
-const ADDRESS = 'd909b7c8dd64';
+const ADDRESS = 'c2810a8842c9';
 const INTERVAL_MILLISEC = 10000;
 
 const sensor = new OmronEnv();
@@ -19,7 +20,7 @@ const discovered = (peripheral) => {
   const d = new Date();
   if(NAME === device.name && ADDRESS === device.uuid) {
     const envData = sensor.parse(peripheral.advertisement.manufacturerData.toString('hex'));
-    console.log(JSON.stringify(envData));
+    console.log([new Date().toLocaleString({ timeZone: 'Asia/Tokyo' }), JSON.stringify(envData)]);
   }
 }
 

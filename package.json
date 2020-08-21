@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "noble": "^1.9.1"
+    "@abandonware/noble": "^1.9.2-9"
   }
 }
